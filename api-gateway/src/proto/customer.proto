@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package customer;
+
+service CustomerService {
+  rpc Create (CreateRequest) returns (CreateResponse) {}
+  rpc FindAll (FindAllRequest) returns (FindAllResponses) {}
+  rpc FindOneById (FindOneByIdRequest) returns (FindOneByIdResponse) {}
+  rpc UpdateOneById (UpdateRequestResponse) returns (UpdateRequestResponse) {}
+  rpc DeleteOneById (DeleteRequest) returns (DeleteResponse) {}
+}
+
+// FindAll
+message FindAllRequest {}
+
+message FindAllResponse {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string address =4;
+}
+
+message FindAllResponses {
+  repeated FindAllResponse data=1;
+}
+
+// Create
+message CreateRequest {
+  string name = 1;
+  string email = 2;
+  string address = 3;
+}
+
+message CreateResponse {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string address =4;
+}
+
+// FindOneById
+message FindOneByIdRequest {
+  int32 id = 1;
+}
+
+message FindOneByIdResponse {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string address =4;
+}
+
+// Update
+message UpdateRequestResponse {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string address =4;
+}
+
+// Delete
+message DeleteRequest {
+  int32 id=1;
+}
+
+ message DeleteResponse {}
